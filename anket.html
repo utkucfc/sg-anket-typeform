@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<script>if(sessionStorage.getItem("sg_kvkk_onay")!=="1"){location.replace("index.html");}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Sistem Global Danışmanlık — Çalışan Memnuniyet Anketi 2026</title>
+<meta name="description" content="Sistem Global Danışmanlık Çalışan Memnuniyet Anketi 2026. Anonim, adım adım." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Aydınlık, hafif tonlu zemin paleti */
+    --bg: #f4f1ea;          /* warm light paper */
+    --bg-2: #efe9dd;        /* deeper warm */
+    --surface: #fbfaf6;
+    --ink: #20211f;         /* near-black warm */
+    --ink-soft: #565952;
+    --ink-faint: #6b6e67;
+    --line: #e2ddd0;
+    --line-strong: #cfc8b8;
+    --accent: #2f6f5e;      /* deep teal-green (serious, premium) */
+    --accent-2: #a3431e;    /* terracotta accent for energy (AA-contrast) */
+    --accent-soft: #e6efeb;
+    --accent-ring: rgba(47,111,94,.32);
+    --danger: #b42318;
+    --danger-bg: #fdecea;
+    --shadow-sm: 0 1px 2px rgba(32,33,31,.06), 0 2px 8px rgba(32,33,31,.05);
+    --shadow-md: 0 8px 30px rgba(32,33,31,.10), 0 2px 8px rgba(32,33,31,.06);
+    --radius: 16px;
+    --radius-lg: 22px;
+    --maxw: 760px;
+    --font-head: "Bricolage Grotesque", "Figtree", sans-serif;
+    --font-body: "Figtree", sans-serif;
+    --t: 240ms cubic-bezier(.22,.61,.36,1);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 700px at 82% -8%, #fbf6ec 0%, rgba(251,246,236,0) 55%),
+      radial-gradient(900px 600px at 8% 108%, #eef3ef 0%, rgba(238,243,239,0) 50%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-size: 17px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0);
+    white-space: nowrap; border: 0;
+  }
+
+  /* ---------- Progress bar (üstte ince) ---------- */
+  .progress {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: var(--line);
+    z-index: 50;
+  }
+  .progress__bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), #3f8a74);
+    transition: width var(--t);
+    border-radius: 0 3px 3px 0;
+  }
+
+  /* ---------- App shell ---------- */
+  .app {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px clamp(16px, 5vw, 40px) 14px;
+    backdrop-filter: blur(8px);
+    background: linear-gradient(180deg, rgba(244,241,234,.92), rgba(244,241,234,.55));
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    color: var(--ink);
+  }
+  .brand__mark {
+    width: 30px; height: 30px;
+    border-radius: 9px;
+    background: linear-gradient(140deg, var(--accent), #3f8a74);
+    display: grid; place-items: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+  .brand small {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    letter-spacing: .02em;
+  }
+  .stepmeta {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .stepmeta b { color: var(--ink); }
+
+  /* ---------- Main stage ---------- */
+  .stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: clamp(20px, 4vh, 48px) clamp(18px, 5vw, 40px) 160px;
+  }
+
+  /* screens */
+  .screen { display: none; }
+  .screen.is-active { display: block; }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideInBack {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .screen.is-active .anim {
+    animation: slideIn 320ms cubic-bezier(.22,.61,.36,1) both;
+  }
+  .screen.is-active.back .anim {
+    animation: slideInBack 280ms cubic-bezier(.22,.61,.36,1) both;
+  }
+
+  /* ---------- Question heading block ---------- */
+  .qindex {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+  .qindex svg { width: 13px; height: 13px; }
+  .eyebrow {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 14px;
+  }
+
+  .q-title {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: clamp(1.55rem, 1.1rem + 2.4vw, 2.55rem);
+    line-height: 1.16;
+    letter-spacing: -.02em;
+    color: var(--ink);
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  .q-sub {
+    font-size: clamp(1rem, .95rem + .4vw, 1.12rem);
+    color: var(--ink-soft);
+    margin: 0 0 30px;
+    max-width: 56ch;
+  }
+
+  /* ---------- Likert (segmented, etiketli — emoji yok) ---------- */
+  .likert {
+    border: 0; padding: 0; margin: 0;
+    min-width: 0;
+  }
+  .likert__legend {
+    padding: 0;
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-weight: 600;
+  }
+  .likert__legend span:first-child { color: var(--danger); }
+  .likert__legend span:last-child { color: var(--accent); }
+
+  .scale {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .opt {
+    position: relative;
+  }
+  .opt input {
+    position: absolute;
+    opacity: 0;
+    width: 1px; height: 1px;
+    pointer-events: none;
+  }
+  .opt label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    min-height: 60px;
+    padding: 13px 18px;
+    background: var(--surface);
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: border-color var(--t), background var(--t), transform 120ms ease, box-shadow var(--t);
+    user-select: none;
+  }
+  .opt label:hover {
+    border-color: var(--line-strong);
+    background: #fff;
+    transform: translateX(2px);
+  }
+  .opt__key {
+    flex: 0 0 auto;
+    width: 34px; height: 34px;
+    border-radius: 9px;
+    border: 1.5px solid var(--line-strong);
+    background: var(--bg);
+    display: grid; place-items: center;
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink-soft);
+    transition: all var(--t);
+  }
+  .opt__text {
+    flex: 1;
+    font-size: 16.5px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .opt__check {
+    flex: 0 0 auto;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--line-strong);
+    display: grid; place-items: center;
+    transition: all var(--t);
+  }
+  .opt__check svg {
+    width: 12px; height: 12px;
+    opacity: 0;
+    transform: scale(.5);
+    transition: all 180ms ease;
+    color: #fff;
+  }
+  .opt input:checked + label {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    box-shadow: 0 0 0 1px var(--accent), var(--shadow-sm);
+  }
+  .opt input:checked + label .opt__key {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .opt input:checked + label .opt__check {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .opt input:checked + label .opt__check svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .opt input:focus-visible + label {
+    outline: 3px solid var(--accent-ring);
+    outline-offset: 2px;
+  }
+
+  .kbd-hint {
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .kbd {
+    display: inline-grid;
+    place-items: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border: 1px solid var(--line-strong);
+    border-bottom-width: 2px;
+    border-radius: 6px;
+    background: var(--surface);
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Form fields (demografik) ---------- */
+  .field { margin-bottom: 22px; }
+  .field > label,
+  .field > .field-label {
+    display: block;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 9px;
+  }
+  .opt-tag {
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+  .req-tag {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--accent-2);
+  }
+
+  input[type="number"],
+  input[type="text"],
+  select,
+  textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1.5px solid var(--line);
+    border-radius: 13px;
+    padding: 14px 16px;
+    transition: border-color var(--t), box-shadow var(--t), background var(--t);
+    appearance: none;
+  }
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23565952' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 44px;
+    cursor: pointer;
+  }
+  input:hover, select:hover, textarea:hover { border-color: var(--line-strong); }
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-ring);
+    background: #fff;
+  }
+
+  /* chip radio group (cinsiyet / kıdem) */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip { position: relative; }
+  .chip input {
+    position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none;
+  }
+  .chip label {
+    display: inline-flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 10px 18px;
+    border: 1.5px solid var(--line);
+    border-radius: 11px;
+    background: var(--surface);
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all var(--t);
+  }
+  .chip label:hover { border-color: var(--line-strong); background: #fff; }
+  .chip input:checked + label {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 600;
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .chip input:focus-visible + label {
+    outline: 3px solid var(--accent-ring);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Anonymity / info card ---------- */
+  .notice {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px 20px;
+    background: var(--accent-soft);
+    border: 1.5px solid #cfe2db;
+    border-radius: var(--radius);
+    margin-bottom: 28px;
+  }
+  .notice svg { flex: 0 0 auto; width: 22px; height: 22px; color: var(--accent); margin-top: 1px; }
+  .notice p { margin: 0; font-size: 14.5px; color: #2c4d44; line-height: 1.5; }
+  .notice strong { color: var(--accent); }
+
+  /* intro list */
+  .intro-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin: 26px 0 6px;
+    padding: 0; list-style: none;
+  }
+  .intro-meta li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .intro-meta svg { width: 17px; height: 17px; color: var(--accent); flex: 0 0 auto; }
+
+  /* ---------- Error message ---------- */
+  .err {
+    display: none;
+    align-items: center;
+    gap: 9px;
+    margin-top: 14px;
+    padding: 11px 15px;
+    background: var(--danger-bg);
+    border: 1.5px solid #f4c4c0;
+    border-radius: 11px;
+    color: var(--danger);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .err.is-shown { display: flex; }
+  .err svg { width: 17px; height: 17px; flex: 0 0 auto; }
+
+  .field.has-error input,
+  .field.has-error select { border-color: var(--danger); }
+
+  /* ---------- Footer nav (sticky) ---------- */
+  .navbar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 40;
+    background: linear-gradient(0deg, var(--bg) 60%, rgba(244,241,234,0));
+    padding: 14px clamp(16px, 5vw, 40px) max(16px, env(safe-area-inset-bottom));
+  }
+  .navbar__inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .btn {
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 13px;
+    padding: 14px 26px;
+    min-height: 52px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: transform 120ms ease, background var(--t), box-shadow var(--t), border-color var(--t), opacity var(--t);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    letter-spacing: -.01em;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn svg { width: 18px; height: 18px; }
+  .btn--primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: var(--shadow-md);
+    flex: 1;
+  }
+  .btn--primary:hover { background: #285f50; }
+  .btn--primary:focus-visible { outline: 3px solid var(--accent-ring); outline-offset: 3px; }
+  .btn--ghost {
+    background: var(--surface);
+    color: var(--ink-soft);
+    border-color: var(--line-strong);
+  }
+  .btn--ghost:hover { background: #fff; color: var(--ink); }
+  .btn--ghost:focus-visible { outline: 3px solid var(--accent-ring); outline-offset: 3px; }
+  .btn:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+  .btn[hidden] { display: none; }
+
+  .navhint {
+    flex: 0 0 auto;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    text-align: right;
+  }
+  .navhint .kbd { vertical-align: middle; }
+  @media (max-width: 560px) {
+    .navhint { display: none; }
+  }
+
+  /* sub-progress dots inside a group */
+  .subdots {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+  }
+  .subdot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--line-strong);
+    transition: all var(--t);
+  }
+  .subdot.done { background: var(--accent); }
+  .subdot.current {
+    background: var(--accent-2);
+    transform: scale(1.35);
+  }
+
+  /* ---------- Thank-you screen ---------- */
+  .thanks {
+    text-align: center;
+    padding: 30px 0;
+  }
+  .thanks__badge {
+    width: 88px; height: 88px;
+    margin: 0 auto 28px;
+    border-radius: 26px;
+    background: linear-gradient(140deg, var(--accent), #3f8a74);
+    display: grid; place-items: center;
+    box-shadow: var(--shadow-md);
+  }
+  .thanks__badge svg { width: 44px; height: 44px; color: #fff; }
+  .thanks h2 {
+    font-family: var(--font-head);
+    font-weight: 700;
+    font-size: clamp(1.7rem, 1.3rem + 2vw, 2.5rem);
+    letter-spacing: -.02em;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  .thanks p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 auto;
+  }
+
+  /* group step subtitle */
+  .group-head {
+    margin-bottom: 4px;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .opt label { padding: 12px 14px; gap: 12px; }
+    .opt__text { font-size: 16px; }
+    .stage { padding-bottom: 150px; }
+    .btn--primary { padding: 14px 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .001ms !important;
+      transition-duration: .001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .screen.is-active .anim { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">SG</span>
+        <span>Sistem Global Danışmanlık
+          <small>Çalışan Memnuniyet Anketi 2026</small>
+        </span>
+      </div>
+      <div class="stepmeta" id="stepMeta" aria-live="polite"></div>
+    </header>
+
+    <main class="stage" id="stage">
+      <form id="surveyForm" novalidate>
+        <!-- Screens injected by JS -->
+      </form>
+    </main>
+
+    <nav class="navbar" aria-label="Anket gezinme">
+      <div class="navbar__inner">
+        <button type="button" class="btn btn--ghost" id="backBtn" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          Geri
+        </button>
+        <button type="button" class="btn btn--primary" id="nextBtn">
+          <span id="nextLabel">İleri</span>
+          <svg id="nextIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <div class="navhint" id="navHint"><span class="kbd">Enter</span> ile ilerle</div>
+      </div>
+    </nav>
+  </div>
+
+  <p class="visually-hidden" id="liveRegion" aria-live="assertive"></p>
+
+<script>
+"use strict";
+
+/* ====================================================================
+   SURVEY DATA — birebir /Users/utku/Desktop/SG-Survey/.build/soru-seti.json
+   ==================================================================== */
+const SURVEY = {
+  "baslik": "Çalışan Memnuniyet Anketi 2026",
+  "sirket": "Sistem Global Danışmanlık",
+  "likertLabels": [
+    "Hiç Memnun Değilim / Katılmıyorum",
+    "Memnun Değilim / Katılmıyorum",
+    "Emin Değilim",
+    "Memnunum / Katılıyorum",
+    "Çok Memnunum / Tamamen Katılıyorum"
+  ],
+  "groups": [
+    {
+      "anaBaslik": "Güvenilirlik 1. Bölüm",
+      "tema": "Güvenilirlik",
+      "bolum": 1,
+      "alan": "Yönetici",
+      "questions": [
+        { "no": 1, "text": "Bağlı olduğum yöneticim bana önemli konular ve değişiklikler hakkında bilgi verir.", "boyut": "Geribildirim" },
+        { "no": 2, "text": "Bağlı olduğum yöneticim beklentilerini açık ve net olarak ifade eder.", "boyut": "Liderlik" },
+        { "no": 3, "text": "Bağlı olduğum yöneticime her makul soruyu sorabiliyorum ve doğrudan bir cevap alabiliyorum.", "boyut": "İletişim Etkinliği" },
+        { "no": 4, "text": "Bağlı olduğum yöneticime kolayca ulaşabilir, onunla rahatça konuşabiliyorum.", "boyut": "İletişim Etkinliği" },
+        { "no": 5, "text": "Bağlı olduğum yöneticim yetkindir ve benim gelişimime destek olur, öğretir.", "boyut": "Liderlik" },
+        { "no": 6, "text": "Bağlı olduğum yöneticim görevlerin dağıtılması ve çalışanların koordinasyonu konusunda iyi çalışıyor.", "boyut": "Liderlik" },
+        { "no": 7, "text": "Sahip olduğum yetkiler, sorumluluklarımla dengelidir.", "boyut": "Yetkelendirme" },
+        { "no": 8, "text": "Bağlı olduğum yöneticim organizasyonun hedefleri ve bunlara nasıl ulaşılabileceği hakkında net düşüncelere sahiptir.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 9, "text": "Bağlı olduğum yöneticim verdiği sözleri tutar.", "boyut": "Liderlik" },
+        { "no": 10, "text": "Bağlı olduğum yöneticimin söylediği ile yaptığı birbirini tutuyor.", "boyut": "Liderlik" },
+        { "no": 11, "text": "Bağlı olduğum yöneticimin iş ile ilgili uygulamaları dürüsttür ve ahlak kurallarına uygundur.", "boyut": "Etik Yönetim" }
+      ]
+    },
+    {
+      "anaBaslik": "Takım Ruhu 2. Bölüm",
+      "tema": "Takım Ruhu",
+      "bolum": 2,
+      "alan": "Yönetici",
+      "questions": [
+        { "no": 12, "text": "Bağlı bulunduğum yöneticimin kararlarında adil ve tarafsız davrandığına inanıyorum.", "boyut": "Liderlik" },
+        { "no": 13, "text": "Bölüm içindeki çalışanlar arasında işbirliği ve iletişim yeterlidir.", "boyut": "İç İletişim" },
+        { "no": 14, "text": "Bağlı olduğum yöneticim ekibinin eğitimi ve gelişimini destekler.", "boyut": "Liderlik" },
+        { "no": 15, "text": "Bağlı olduğum yöneticim, sorunlar karşısında çalışanlara karşı açık fikirli, yapıcı yaklaşır ve sorunları karşılıklı konuşarak çözer.", "boyut": "Liderlik" }
+      ]
+    },
+    {
+      "anaBaslik": "Güvenilirlik - Saygı 1. Bölüm",
+      "tema": "Güvenilirlik - Saygı",
+      "bolum": 1,
+      "alan": "Şirket",
+      "questions": [
+        { "no": 16, "text": "Yönetim (Mutfak/bölüm yönetimi) bu şirkete uyum sağlayabilecek uygun personeli işe alır.", "boyut": "Çalışma Ortamı" },
+        { "no": 17, "text": "Mesleki açıdan kendimi geliştirmemi sağlayacak eğitim olanakları ve destek verilmektedir.", "boyut": "Eğitim Destek & Memnuniyet" },
+        { "no": 18, "text": "İşimi iyi yapabilmek için gerekli olan malzeme ve donanımlar bana sağlanır. Kullandığım ekipmanlar (bilgisayar, kullanılan yazılımlar, vb) yeterli ve uygundur.", "boyut": "Gelişim" },
+        { "no": 19, "text": "Burada yeteneklerimi en iyi şekilde değerlendirebiliyorum.", "boyut": "Kariyer" },
+        { "no": 20, "text": "Üst yönetim (Mutfak/bölüm yönetimi) iyi çalışmayı ve özel çabayı takdir etmektedir.", "boyut": "Takdir Tanıma" },
+        { "no": 21, "text": "Üst yönetim (Mutfak/bölüm yönetimi) çalışanların önerilerini ve fikirlerini dikkate alır ve cevaplandırır.", "boyut": "Motivasyon" },
+        { "no": 22, "text": "Duygusal ve psikolojik olarak sağlıklı bir iş ortamı vardır.", "boyut": "Çalışma Ortamı" },
+        { "no": 23, "text": "Binamız ve ofislerimiz iyi bir iş ortamına katkıda bulunmaktadır.", "boyut": "Çalışma Ortamı" },
+        { "no": 24, "text": "Gerekli olduğunu düşündüğüm zaman izin alabiliyorum.", "boyut": "İş Yaşam Dengesi" }
+      ]
+    },
+    {
+      "anaBaslik": "Hakkaniyet 2. Bölüm",
+      "tema": "Hakkaniyet",
+      "bolum": 2,
+      "alan": "Şirket",
+      "questions": [
+        { "no": 25, "text": "Aldığım maaş / ücret, niteliklerime, yaptığım işe ve piyasa koşullarına göre yeterlidir.", "boyut": "Ücret Politikası" },
+        { "no": 26, "text": "Burada herkesin fark edilme ve takdir edilme imkanı bulunmaktadır.", "boyut": "Takdir Tanıma" },
+        { "no": 27, "text": "Burada bana pozisyonuma bakılmaksızın, şirketin bir parçası gibi davranılır.", "boyut": "Çalışma Ortamı" },
+        { "no": 28, "text": "Üst yönetimin (Mutfak/bölüm yönetimi) kararlarında adil ve tarafsız davrandığına inanıyorum.", "boyut": "Liderlik" },
+        { "no": 29, "text": "Çalışanlara yaşlarına bakılmaksızın adil davranılır.", "boyut": "Çeşitlilik & Fırsat Eşitliği" },
+        { "no": 30, "text": "Çalışanlara, milliyetleri ve etnik kökenleri dikkate alınmaksızın adil davranılır.", "boyut": "Çeşitlilik & Fırsat Eşitliği" },
+        { "no": 31, "text": "Çalışanlara, cinsiyetlerine bakılmaksızın adil davranılır.", "boyut": "Çeşitlilik & Fırsat Eşitliği" },
+        { "no": 32, "text": "Çalışanlara engelliliklerine bakılmaksızın adil bir şekilde davranılır.", "boyut": "Çeşitlilik & Fırsat Eşitliği" },
+        { "no": 33, "text": "Eğer bana haksızlık yapıldığı için bir şikayette bulunursam bunun adilce değerlendirileceğinden eminim.", "boyut": "Etik Yönetim" }
+      ]
+    },
+    {
+      "anaBaslik": "Gurur 3. Bölüm",
+      "tema": "Gurur",
+      "bolum": 3,
+      "alan": "Şirket",
+      "questions": [
+        { "no": 34, "text": "Buraya önemli katkılarda bulunabileceğime ve potansiyelimi şirkete gösterebileceğime inanıyorum.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 35, "text": "İşim benim için özel bir anlam taşımaktadır ve sadece \"iş\" değildir.", "boyut": "Marka Elçiliği" },
+        { "no": 36, "text": "Burada müşterek olarak yaptıklarımızdan gurur duymaktayım.", "boyut": "Marka Elçiliği" },
+        { "no": 37, "text": "Buradaki çalışanlar işi tamamlamak ve müşteri memnuniyetini sağlamak için daha fazla çalışmaya hazırdırlar.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 38, "text": "Burada uzun bir süre daha çalışmak istiyorum.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 39, "text": "Başkalarına burada çalıştığımı söylemekten gurur duyuyorum.", "boyut": "Marka Elçiliği" },
+        { "no": 40, "text": "Yakın tanıdıklarıma bu şirketi işveren olarak tavsiye ederim.", "boyut": "Marka Elçiliği" },
+        { "no": 41, "text": "Ürünlerimizi ve hizmetlerimizi tavsiye ediyorum.", "boyut": "Marka Elçiliği" },
+        { "no": 42, "text": "Çalışanlar işlerine severek gelirler.", "boyut": "Motivasyon" },
+        { "no": 43, "text": "Topluma değer katma biçimimizden memnunum.", "boyut": "Toplumsal Katkı" }
+      ]
+    },
+    {
+      "anaBaslik": "Takım Ruhu 4. Bölüm",
+      "tema": "Takım Ruhu",
+      "bolum": 4,
+      "alan": "Şirket",
+      "questions": [
+        { "no": 44, "text": "Ben burada \"kendim\" olabiliyorum ve rol yapmama hiç gerek yok.", "boyut": "Kişisel Gelişim" },
+        { "no": 45, "text": "Çalışanlar birbirleri ile ilgilenmektedirler.", "boyut": "İç İletişim" },
+        { "no": 46, "text": "Burada hoş ve dostça bir çalışma ortamımız vardır.", "boyut": "Çalışma Ortamı" },
+        { "no": 47, "text": "Burada çalışmak zevklidir.", "boyut": "Motivasyon" },
+        { "no": 48, "text": "Yeni bir çalışan olarak burada hoş karşılanıyorsun.", "boyut": "Çalışma Ortamı" },
+        { "no": 49, "text": "Çalışanlar işletme dahilinde başka bir işe veya bölüme geçtiklerinde iyi bir şekilde karşılanır ve uyum sağlamaları için destek olunur.", "boyut": "Çalışma Ortamı" },
+        { "no": 50, "text": "Biz burada kendimizi bir \"takım\" gibi hissediyoruz ve iyi bir ekip ruhumuz var.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 51, "text": "Burada hepimiz aynı gemide yer almaktayız.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 52, "text": "Çalışanların işbirliğine güvenilir.", "boyut": "İç İletişim" },
+        { "no": 53, "text": "Farklı birimler ve bölümler arasında işbirliği ve iletişim yeterlidir.", "boyut": "İç İletişim" }
+      ]
+    },
+    {
+      "anaBaslik": "Genel 5. Bölüm",
+      "tema": "Genel",
+      "bolum": 5,
+      "alan": "Şirket",
+      "questions": [
+        { "no": 54, "text": "Aldığımız eğitimlerin etkinlikleri değerlendirilerek eksik olan alanlar için yeni planlamalar yapılır.", "boyut": "Eğitim Destek & Memnuniyet" },
+        { "no": 55, "text": "‘Kendimi bu firmada takımın bir parçası olarak görüyorum’ ifadesine ne ölçüde katılıyorsunuz?", "boyut": "İç İletişim" },
+        { "no": 56, "text": "Çalıştığım şirkette çalışanların motivasyon düzeyinin yüksek olduğunu düşünüyorum.", "boyut": "Motivasyon" },
+        { "no": 57, "text": "Çalışma saatlerim ve mola sürelerim yeterli ve uygundur.", "boyut": "Çalışma Ortamı" },
+        { "no": 58, "text": "Departman içi iş yükü dağılımı adildir.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 59, "text": "Organizasyon değişikliklerinde / işe alımlarda, uygulanan oryantasyon programı yeterlidir.", "boyut": "Eğitim Destek & Memnuniyet" },
+        { "no": 60, "text": "Şirkette karar alma süreci hızlıdır ve bu şirketin işlerini hızlandırır.", "boyut": "Katılım Karar Alma" },
+        { "no": 61, "text": "Çay, kahve vb. içecek ikramları yeterli ve uygundur.", "boyut": "Çalışma Ortamı" },
+        { "no": 62, "text": "Şirkette yapılan sosyal faaliyetler yeterlidir.", "boyut": "İç İletişim" },
+        { "no": 63, "text": "Şirketimde çalışanlara, görev alanları dışındaki projelere (farklı çalışmalara) katılım imkanı sağlanır.", "boyut": "Kişisel Gelişim" },
+        { "no": 64, "text": "Terfi imkanları yaratılırken kadın ve erkekler için fırsat eşitliği sağlanır.", "boyut": "Çeşitlilik & Fırsat Eşitliği" },
+        { "no": 65, "text": "Şirketimin ortak ve uzun vadeli hedefleri yeterli derecede açık ve anlaşılırdır.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 66, "text": "Şirketimizin dijitalleşme uygulamalarında adım adım iyileştirmeler yaparak ilerlediğine inanıyorum.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 67, "text": "Şirketimizde müşteri memnuniyetine önem verilir.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 68, "text": "Şirketimizde çalışan memnuniyeti esas alınır.", "boyut": "Motivasyon" },
+        { "no": 69, "text": "Şirketim kurumsallaşma ve profesyonel yönetim anlayışına sahip olup her zaman yenilikçidir.", "boyut": "Hedeflerle Yönetim & Performans" },
+        { "no": 70, "text": "Şirketim topluma ve çevreye karşı sorumlu davranır.", "boyut": "Toplumsal Katkı" },
+        { "no": 71, "text": "Genel olarak düşündüğünüzde Sistem Global'de çalışmaktan ne ölçüde memnunsunuz?", "boyut": "Motivasyon" },
+        { "no": 72, "text": "Şirketinizin çalışanları için yapmış olduğu bu anket çalışmasından sonra, çalışanların talepleri doğrultusunda gerekli düzenlemelerin yapılacağına inanıyor musunuz?", "boyut": "Motivasyon" },
+        { "no": 73, "text": "Şirketim teknolojive yazılım alanındaki gelişmeleri ( RPA; AI, Sürece özel yazılımlar vb.) takip eder ve uygular", "boyut": "Teknoloji, İnovasyon" },
+        { "no": 74, "text": "Şirketim teknoloji alanında benim gelişimimi destekler", "boyut": "Teknoloji, İnovasyon" },
+        { "no": 75, "text": "Şirketim inovasyona açık bir şirkettir ve inovasyon kültürü tüm çalışanlara yaygınlaştırılmıştır.", "boyut": "Teknoloji, İnovasyon" },
+        { "no": 76, "text": "Şirketim çevre konularında duyarlıdır ve benim de bu alanda farkındalığımı arttırmaktadır.", "boyut": "Teknoloji, İnovasyon" }
+      ]
+    }
+  ],
+  "openEnded": [
+    "Eğer olanağınız olsaydı çalıştığınız firmanızda neleri değiştirirdiniz?",
+    "Değiştirmek istediğiniz konularla ilgili çözüm önerileriniz nelerdir? Yazar mısınız?",
+    "Şirketimi olumlu yönde farklılaştıran en önemli özelliği nedir?"
+  ]
+};
+
+/* ====================================================================
+   STATE & STEP MODEL
+   "Tek soru odaklı": her Likert sorusu = ayrı adım.
+   Adımlar: intro, demografik, (76 likert), (3 açık uçlu), teşekkür.
+   ==================================================================== */
+const answers = {};          // { no: deger }
+const openEndedAns = {};     // { index: text }
+const demo = { yas: "", sehir: "", cinsiyet: "", kidem: "" };
+
+// flatten likert questions, carrying group meta
+const FLAT = [];
+SURVEY.groups.forEach(function (g) {
+  g.questions.forEach(function (q) {
+    FLAT.push({ no: q.no, text: q.text, boyut: q.boyut, tema: g.tema, alan: g.alan, anaBaslik: g.anaBaslik });
+  });
+});
+
+// build step list
+const STEPS = [];
+STEPS.push({ kind: "intro" });
+STEPS.push({ kind: "demo" });
+FLAT.forEach(function (q, i) {
+  STEPS.push({ kind: "likert", q: q, idx: i });
+});
+SURVEY.openEnded.forEach(function (t, i) {
+  STEPS.push({ kind: "open", text: t, idx: i });
+});
+STEPS.push({ kind: "thanks" });
+
+const TOTAL_LIKERT = FLAT.length;            // 76
+const FIRST_LIKERT_STEP = 2;                 // intro=0, demo=1
+const LAST_LIKERT_STEP = 1 + TOTAL_LIKERT;   // = 77
+const THANKS_STEP = STEPS.length - 1;
+
+// helper: count answered likerts
+function answeredCount() {
+  return FLAT.reduce(function (n, q) { return n + (answers[q.no] != null ? 1 : 0); }, 0);
+}
+
+let current = 0;
+let submitted = false;
+let navDir = "fwd";
+
+const form = document.getElementById("surveyForm");
+const stage = document.getElementById("stage");
+const progressBar = document.getElementById("progressBar");
+const stepMeta = document.getElementById("stepMeta");
+const backBtn = document.getElementById("backBtn");
+const nextBtn = document.getElementById("nextBtn");
+const nextLabel = document.getElementById("nextLabel");
+const nextIcon = document.getElementById("nextIcon");
+const navHint = document.getElementById("navHint");
+const liveRegion = document.getElementById("liveRegion");
+
+/* ---------- small DOM helpers ---------- */
+function el(tag, attrs, children) {
+  const node = document.createElement(tag);
+  if (attrs) {
+    Object.keys(attrs).forEach(function (k) {
+      if (k === "class") node.className = attrs[k];
+      else if (k === "html") node.innerHTML = attrs[k];
+      else if (k === "text") node.textContent = attrs[k];
+      else if (k.slice(0, 2) === "on" && typeof attrs[k] === "function") {
+        node.addEventListener(k.slice(2).toLowerCase(), attrs[k]);
+      } else if (attrs[k] === true) node.setAttribute(k, "");
+      else if (attrs[k] !== false && attrs[k] != null) node.setAttribute(k, attrs[k]);
+    });
+  }
+  if (children != null) {
+    (Array.isArray(children) ? children : [children]).forEach(function (c) {
+      if (c == null) return;
+      node.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+    });
+  }
+  return node;
+}
+const ICON = {
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+  shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>',
+  alert: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>',
+  dot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>',
+  clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  lock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>',
+  list: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h12M8 12h12M8 18h12M3 6h.01M3 12h.01M3 18h.01"/></svg>'
+};
+
+/* ====================================================================
+   RENDERERS
+   ==================================================================== */
+function renderIntro() {
+  const wrap = el("div", { class: "anim" });
+  wrap.appendChild(el("span", { class: "eyebrow", text: "Sistem Global Danışmanlık" }));
+  wrap.appendChild(el("h1", { class: "q-title", text: "Çalışan Memnuniyet Anketi 2026" }));
+  wrap.appendChild(el("p", { class: "q-sub", text: "Görüşleriniz, birlikte daha iyi bir çalışma ortamı kurmamız için değerli. Anket adım adım ilerler; her ekranda tek bir soru görürsünüz." }));
+
+  const notice = el("div", { class: "notice", role: "note" });
+  notice.innerHTML = ICON.shield;
+  notice.appendChild(el("p", { html: "<strong>Yanıtlarınız tamamen anonimdir.</strong> Ad, soyad veya departman bilgisi istenmez; cevaplar yalnızca toplu olarak değerlendirilir ve kişisel olarak ilişkilendirilemez." }));
+  wrap.appendChild(notice);
+
+  const meta = el("ul", { class: "intro-meta" });
+  [
+    [ICON.list, "76 değerlendirme + 3 açık uçlu soru"],
+    [ICON.clock, "Yaklaşık 8–10 dakika"],
+    [ICON.lock, "Anonim ve gizli"]
+  ].forEach(function (m) {
+    const li = el("li");
+    li.innerHTML = m[0];
+    li.appendChild(document.createTextNode(m[1]));
+    meta.appendChild(li);
+  });
+  wrap.appendChild(meta);
+  return wrap;
+}
+
+function renderDemo() {
+  const wrap = el("div", { class: "anim" });
+  wrap.appendChild(el("span", { class: "qindex", html: ICON.dot + "Başlangıç" }));
+  wrap.appendChild(el("h2", { class: "q-title", text: "Sizi biraz tanıyalım" }));
+  wrap.appendChild(el("p", { class: "q-sub", text: "Bu bilgiler yalnızca sonuçları gruplandırmak içindir. Yıldızlı alan dışındakiler isteğe bağlıdır." }));
+
+  // Yaş
+  const fYas = el("div", { class: "field" });
+  fYas.appendChild(el("label", { for: "yas", html: "Yaşınız <span class='opt-tag'>(opsiyonel)</span>" }));
+  const yas = el("input", {
+    type: "number", id: "yas", name: "yas", min: "18", max: "70",
+    inputmode: "numeric", placeholder: "Örn. 34", value: demo.yas,
+    "aria-describedby": "yasHint"
+  });
+  yas.addEventListener("input", function () { demo.yas = yas.value; });
+  fYas.appendChild(yas);
+  fYas.appendChild(el("p", { id: "yasHint", class: "opt-tag", style: "margin:7px 0 0", text: "18–70 arası." }));
+  wrap.appendChild(fYas);
+
+  // Şehir
+  const fSehir = el("div", { class: "field" });
+  fSehir.appendChild(el("label", { for: "sehir", html: "Şehir <span class='opt-tag'>(opsiyonel)</span>" }));
+  const sehir = el("select", { id: "sehir", name: "sehir" });
+  sehir.appendChild(el("option", { value: "", text: "Seçiniz…" }));
+  ["İstanbul", "Ankara", "İzmir", "Bursa", "Kocaeli", "Antalya", "Gaziantep", "Diğer"].forEach(function (c) {
+    const o = el("option", { value: c, text: c });
+    if (demo.sehir === c) o.selected = true;
+    sehir.appendChild(o);
+  });
+  sehir.addEventListener("change", function () { demo.sehir = sehir.value; });
+  fSehir.appendChild(sehir);
+  wrap.appendChild(fSehir);
+
+  // Cinsiyet
+  const fCins = el("fieldset", { class: "field" });
+  fCins.appendChild(el("legend", { class: "field-label", html: "Cinsiyet <span class='opt-tag'>(opsiyonel)</span>" }));
+  const chipsC = el("div", { class: "chips", role: "radiogroup", "aria-label": "Cinsiyet (opsiyonel)" });
+  ["Kadın", "Erkek", "Belirtmek istemiyorum"].forEach(function (v, i) {
+    const id = "cins-" + i;
+    const c = el("div", { class: "chip" });
+    const inp = el("input", { type: "radio", name: "cinsiyet", id: id, value: v });
+    if (demo.cinsiyet === v) inp.checked = true;
+    inp.addEventListener("change", function () { demo.cinsiyet = v; });
+    c.appendChild(inp);
+    c.appendChild(el("label", { for: id, text: v }));
+    chipsC.appendChild(c);
+  });
+  fCins.appendChild(chipsC);
+  wrap.appendChild(fCins);
+
+  // Kıdem (zorunlu)
+  const fKid = el("fieldset", { class: "field", id: "kidemField" });
+  fKid.appendChild(el("legend", { class: "field-label", html: "Şirketteki kıdeminiz <span class='req-tag'>* zorunlu</span>" }));
+  const chipsK = el("div", { class: "chips", role: "radiogroup", "aria-label": "Kıdem (zorunlu)", "aria-required": "true" });
+  ["0-1 yıl", "1-3 yıl", "3-5 yıl", "5-10 yıl", "10+ yıl"].forEach(function (v, i) {
+    const id = "kid-" + i;
+    const c = el("div", { class: "chip" });
+    const inp = el("input", { type: "radio", name: "kidem", id: id, value: v });
+    if (demo.kidem === v) inp.checked = true;
+    inp.addEventListener("change", function () {
+      demo.kidem = v;
+      fKid.classList.remove("has-error");
+      kidErr.classList.remove("is-shown");
+    });
+    c.appendChild(inp);
+    c.appendChild(el("label", { for: id, text: v }));
+    chipsK.appendChild(c);
+  });
+  fKid.appendChild(chipsK);
+  const kidErr = el("div", { class: "err", id: "kidemErr", role: "alert" });
+  kidErr.innerHTML = ICON.alert + "<span>Lütfen kıdeminizi seçin.</span>";
+  fKid.appendChild(kidErr);
+  wrap.appendChild(fKid);
+
+  return wrap;
+}
+
+function renderLikert(step) {
+  const q = step.q;
+  const wrap = el("div", { class: "anim" });
+
+  // group context line
+  const pos = step.idx + 1;
+  wrap.appendChild(el("span", {
+    class: "qindex",
+    html: ICON.dot + q.anaBaslik
+  }));
+
+  // sub-progress dots within the whole likert set count, but show position
+  wrap.appendChild(el("h2", { class: "q-title", id: "qtitle-" + q.no, text: q.text }));
+
+  // Likert control: segmented etiketli radio list (1-5)
+  const fs = el("fieldset", { class: "likert" });
+  const legend = el("legend", { class: "likert__legend" });
+  legend.appendChild(el("span", { text: SURVEY.likertLabels[0] }));
+  legend.appendChild(el("span", { text: SURVEY.likertLabels[4] }));
+  fs.appendChild(legend);
+  // accessible group name
+  fs.setAttribute("aria-labelledby", "qtitle-" + q.no);
+
+  const scale = el("div", { class: "scale", role: "radiogroup", "aria-labelledby": "qtitle-" + q.no, "aria-required": "true" });
+  for (let v = 1; v <= 5; v++) {
+    const id = "q" + q.no + "-v" + v;
+    const opt = el("div", { class: "opt" });
+    const inp = el("input", {
+      type: "radio", name: "q" + q.no, id: id, value: String(v),
+      "aria-label": v + " — " + SURVEY.likertLabels[v - 1]
+    });
+    if (answers[q.no] === v) inp.checked = true;
+    inp.addEventListener("change", function () {
+      answers[q.no] = v;
+      qErr.classList.remove("is-shown");
+      updateChrome();
+      // auto-advance feel: brief highlight, then go next (only if not last likert chain? keep manual via Enter for safety)
+    });
+    opt.appendChild(inp);
+    const lab = el("label", { for: id });
+    lab.appendChild(el("span", { class: "opt__key", text: String(v) }));
+    lab.appendChild(el("span", { class: "opt__text", text: SURVEY.likertLabels[v - 1] }));
+    const chk = el("span", { class: "opt__check", "aria-hidden": "true" });
+    chk.innerHTML = ICON.check;
+    lab.appendChild(chk);
+    opt.appendChild(lab);
+    scale.appendChild(opt);
+  }
+  fs.appendChild(scale);
+
+  const qErr = el("div", { class: "err", id: "qErr-" + q.no, role: "alert" });
+  qErr.innerHTML = ICON.alert + "<span>Devam etmek için bir seçenek işaretleyin.</span>";
+  fs.appendChild(qErr);
+
+  const hint = el("div", { class: "kbd-hint" });
+  hint.appendChild(el("span", { class: "kbd", text: "1" }));
+  hint.appendChild(el("span", { text: "–" }));
+  hint.appendChild(el("span", { class: "kbd", text: "5" }));
+  hint.appendChild(el("span", { text: " tuşlarıyla seçim yapabilirsiniz" }));
+  fs.appendChild(hint);
+
+  wrap.appendChild(fs);
+  return wrap;
+}
+
+function renderOpen(step) {
+  const wrap = el("div", { class: "anim" });
+  wrap.appendChild(el("span", { class: "qindex", html: ICON.dot + "Açık uçlu " + (step.idx + 1) + " / 3" }));
+  wrap.appendChild(el("h2", { class: "q-title", text: step.text }));
+  wrap.appendChild(el("p", { class: "q-sub", text: "Bu soru isteğe bağlıdır. Dilediğiniz kadar yazabilirsiniz." }));
+
+  const f = el("div", { class: "field" });
+  const id = "open-" + step.idx;
+  f.appendChild(el("label", { for: id, class: "visually-hidden", text: step.text }));
+  const ta = el("textarea", {
+    id: id, name: id, rows: "5",
+    placeholder: "Yanıtınızı buraya yazabilirsiniz (opsiyonel)…",
+    maxlength: "2000"
+  });
+  ta.value = openEndedAns[step.idx] || "";
+  ta.addEventListener("input", function () { openEndedAns[step.idx] = ta.value; });
+  f.appendChild(ta);
+  wrap.appendChild(f);
+  return wrap;
+}
+
+function renderThanks() {
+  const wrap = el("div", { class: "anim thanks" });
+  const badge = el("div", { class: "thanks__badge", "aria-hidden": "true" });
+  badge.innerHTML = ICON.check;
+  wrap.appendChild(badge);
+  wrap.appendChild(el("h2", { text: "Teşekkür ederiz!" }));
+  wrap.appendChild(el("p", { text: "Yanıtlarınız başarıyla kaydedildi. Geri bildiriminiz, Sistem Global Danışmanlık'ta çalışma deneyimini iyileştirmek için değerlendirilecek. Katılımınız için teşekkürler." }));
+  return wrap;
+}
+
+/* ====================================================================
+   STEP NAVIGATION
+   ==================================================================== */
+function buildScreen(i) {
+  const step = STEPS[i];
+  let content;
+  switch (step.kind) {
+    case "intro": content = renderIntro(); break;
+    case "demo": content = renderDemo(); break;
+    case "likert": content = renderLikert(step); break;
+    case "open": content = renderOpen(step); break;
+    case "thanks": content = renderThanks(); break;
+  }
+  const screen = el("div", { class: "screen", "data-step": i });
+  screen.appendChild(content);
+  return screen;
+}
+
+function render() {
+  // clear
+  form.innerHTML = "";
+  const screen = buildScreen(current);
+  screen.classList.add("is-active");
+  if (navDir === "back") screen.classList.add("back");
+  form.appendChild(screen);
+  updateChrome();
+  // focus management
+  requestAnimationFrame(function () {
+    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    const step = STEPS[current];
+    if (step.kind === "likert") {
+      const checked = form.querySelector('input[type="radio"]:checked');
+      const target = checked || form.querySelector('input[type="radio"]');
+      // don't steal focus aggressively; focus title for screen readers
+      const title = form.querySelector(".q-title");
+      if (title) { title.setAttribute("tabindex", "-1"); title.focus({ preventScroll: true }); }
+    } else {
+      const title = form.querySelector(".q-title");
+      if (title) { title.setAttribute("tabindex", "-1"); title.focus({ preventScroll: true }); }
+    }
+  });
+}
+
+function updateChrome() {
+  const step = STEPS[current];
+
+  // progress: weight intro/demo lightly, base mostly on likert progress
+  let pct;
+  if (current === 0) pct = 2;
+  else if (current === 1) pct = 5;
+  else if (step.kind === "thanks") pct = 100;
+  else {
+    // span 5%..100 across likert + open
+    const totalAnswerSteps = TOTAL_LIKERT + SURVEY.openEnded.length;
+    const doneSteps = (current - FIRST_LIKERT_STEP); // 0-based among likert/open
+    pct = 5 + Math.round((doneSteps / totalAnswerSteps) * 93);
+  }
+  progressBar.style.width = pct + "%";
+
+  // step meta text
+  if (step.kind === "intro") {
+    stepMeta.textContent = "Başlamak için hazır";
+  } else if (step.kind === "demo") {
+    stepMeta.innerHTML = "Bölüm 1 · Demografik";
+  } else if (step.kind === "likert") {
+    stepMeta.innerHTML = "Soru <b>" + (step.idx + 1) + "</b> / " + TOTAL_LIKERT;
+  } else if (step.kind === "open") {
+    stepMeta.innerHTML = "Açık uçlu <b>" + (step.idx + 1) + "</b> / " + SURVEY.openEnded.length;
+  } else {
+    stepMeta.textContent = "Tamamlandı";
+  }
+
+  // nav buttons
+  backBtn.hidden = (current === 0 || step.kind === "thanks");
+  if (step.kind === "thanks") {
+    nextBtn.hidden = true;
+    navHint.style.visibility = "hidden";
+    return;
+  }
+  nextBtn.hidden = false;
+  navHint.style.visibility = "visible";
+
+  // label
+  const isLastBeforeThanks = (current === THANKS_STEP - 1);
+  if (step.kind === "intro") {
+    nextLabel.textContent = "Ankete başla";
+    nextIcon.style.display = "";
+    nextBtn.disabled = false;
+    navHint.innerHTML = '<span class="kbd">Enter</span> ile başla';
+  } else if (isLastBeforeThanks) {
+    nextLabel.textContent = submitted ? "Gönderiliyor…" : "Gönder";
+    nextIcon.style.display = "none";
+    nextBtn.disabled = submitted;
+    navHint.innerHTML = '<span class="kbd">Enter</span> ile gönder';
+  } else {
+    nextLabel.textContent = "İleri";
+    nextIcon.style.display = "";
+    nextBtn.disabled = false;
+    navHint.innerHTML = '<span class="kbd">Enter</span> ile ilerle';
+  }
+}
+
+/* ---------- validation ---------- */
+function validateStep() {
+  const step = STEPS[current];
+  if (step.kind === "demo") {
+    if (!demo.kidem) {
+      const field = document.getElementById("kidemField");
+      const err = document.getElementById("kidemErr");
+      if (field) field.classList.add("has-error");
+      if (err) err.classList.add("is-shown");
+      const firstChip = form.querySelector('input[name="kidem"]');
+      if (firstChip) firstChip.focus({ preventScroll: false });
+      const legend = field ? field.querySelector("legend") : null;
+      if (legend) legend.scrollIntoView({ behavior: "smooth", block: "center" });
+      announce("Lütfen kıdeminizi seçin.");
+      return false;
+    }
+    return true;
+  }
+  if (step.kind === "likert") {
+    if (answers[step.q.no] == null) {
+      const err = document.getElementById("qErr-" + step.q.no);
+      if (err) err.classList.add("is-shown");
+      const first = form.querySelector('input[type="radio"]');
+      if (first) first.focus({ preventScroll: false });
+      announce("Devam etmek için bir seçenek işaretleyin.");
+      return false;
+    }
+    return true;
+  }
+  return true; // intro, open: no required
+}
+
+function announce(msg) {
+  liveRegion.textContent = "";
+  requestAnimationFrame(function () { liveRegion.textContent = msg; });
+}
+
+function goNext() {
+  const step = STEPS[current];
+  // submit step
+  if (current === THANKS_STEP - 1) {
+    if (!validateStep()) return;
+    doSubmit();
+    return;
+  }
+  if (!validateStep()) return;
+  navDir = "fwd";
+  current = Math.min(current + 1, THANKS_STEP);
+  render();
+}
+
+function goBack() {
+  if (current === 0) return;
+  navDir = "back";
+  current = Math.max(current - 1, 0);
+  render();
+}
+
+/* ---------- submit ---------- */
+function buildPayload() {
+  const yanitlar = FLAT.map(function (q) {
+    return {
+      no: q.no,
+      alan: q.alan,
+      tema: q.tema,
+      boyut: q.boyut,
+      deger: answers[q.no] != null ? answers[q.no] : null
+    };
+  });
+  const acikUclu = {};
+  SURVEY.openEnded.forEach(function (t, i) {
+    acikUclu["soru" + (i + 1)] = (openEndedAns[i] || "").trim();
+  });
+  return {
+    kisiselBilgiler: {
+      yas: demo.yas ? Number(demo.yas) : null,
+      sehir: demo.sehir || null,
+      cinsiyet: demo.cinsiyet || null,
+      kidem: demo.kidem || null
+    },
+    yanitlar: yanitlar,
+    acikUclu: acikUclu
+  };
+}
+
+function doSubmit() {
+  if (submitted) return;
+  // final guard: all 76 answered
+  if (answeredCount() < TOTAL_LIKERT) {
+    // jump to first missing
+    const missing = FLAT.findIndex(function (q) { return answers[q.no] == null; });
+    if (missing >= 0) {
+      announce("Eksik kalan sorular var. İlk eksiğe yönlendiriliyorsunuz.");
+      navDir = "back";
+      current = FIRST_LIKERT_STEP + missing;
+      render();
+      requestAnimationFrame(function () { validateStep(); });
+      return;
+    }
+  }
+  submitted = true;
+  updateChrome();
+  const payload = buildPayload();
+  // simulate async submit
+  setTimeout(function () {
+    console.log("Anket gönderimi:", JSON.stringify(payload, null, 2));
+    console.log(payload);
+    navDir = "fwd";
+    current = THANKS_STEP;
+    render();
+    announce("Anket başarıyla gönderildi. Teşekkürler.");
+  }, 650);
+}
+
+/* ====================================================================
+   KEYBOARD
+   ==================================================================== */
+document.addEventListener("keydown", function (e) {
+  const step = STEPS[current];
+  const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : "";
+  const typingInTextarea = tag === "textarea";
+  const typingInText = tag === "input" && e.target.type === "number";
+
+  // 1-5 selection on likert steps
+  if (step && step.kind === "likert" && !typingInTextarea) {
+    if (e.key >= "1" && e.key <= "5") {
+      const v = Number(e.key);
+      const input = form.querySelector('input[name="q' + step.q.no + '"][value="' + v + '"]');
+      if (input) {
+        input.checked = true;
+        input.dispatchEvent(new Event("change", { bubbles: true }));
+        input.focus({ preventScroll: true });
+        e.preventDefault();
+      }
+      return;
+    }
+  }
+
+  // Enter to advance (not inside textarea; allow Ctrl/Cmd+Enter in textarea to advance)
+  if (e.key === "Enter") {
+    if (typingInTextarea && !(e.metaKey || e.ctrlKey)) return; // let newline
+    if (step && step.kind === "thanks") return;
+    e.preventDefault();
+    goNext();
+    return;
+  }
+
+  // Backspace as go-back only when not typing in a field
+  if (e.key === "Backspace" && !typingInTextarea && !typingInText && tag !== "input") {
+    if (current > 0 && step.kind !== "thanks") {
+      e.preventDefault();
+      goBack();
+    }
+  }
+});
+
+nextBtn.addEventListener("click", goNext);
+backBtn.addEventListener("click", goBack);
+form.addEventListener("submit", function (e) { e.preventDefault(); });
+
+/* ---------- init ---------- */
+render();
+</script>
+</body>
+</html>
