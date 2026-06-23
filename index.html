@@ -839,7 +839,7 @@
     }
     /* aktifse: startBtn tıklanınca önce onay bayrağını yaz, sonra aynı sekmede anket.html'e git */
     if(btn === startBtn){
-      try{ sessionStorage.setItem("sg_kvkk_onay","1"); }catch(err){}
+      try{ sessionStorage.setItem("sg_kvkk_onay_tf","1"); }catch(err){}
       /* varsayılan navigasyon (aynı sekme href) devam eder */
     }
     /* heroStart aktifse sayfa içi #start'a kayar (varsayılan davranış) */
@@ -851,7 +851,7 @@
   });
 
   /* her yüklemede aktif onay zorunlu: bayat onayı temizle + tarayıcı form geri-yüklemesini ez */
-  try{ sessionStorage.removeItem("sg_kvkk_onay"); }catch(err){}
+  try{ sessionStorage.removeItem("sg_kvkk_onay_tf"); }catch(err){}
   checkbox.checked = false;
   syncConsent();
 
