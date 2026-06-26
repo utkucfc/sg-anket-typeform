@@ -322,6 +322,17 @@
     font-family: var(--font-body); font-size: 13px; letter-spacing: .08em;
     text-transform: uppercase; color: var(--ink-faint);
   }
+  .doc-date {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 14px;
+    font-family: var(--font-body); font-size: 13px; font-weight: 600;
+    letter-spacing: .02em; color: var(--ink-soft);
+  }
+  .doc-date::before {
+    content: ""; flex: none;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent); opacity: .85;
+  }
   .section-lead {
     margin-top: 16px; color: var(--ink-soft); font-size: 16px; font-weight: 400;
     max-width: 66ch; text-wrap: pretty;
@@ -710,9 +721,10 @@
       <header class="section-head rise">
         <h2 class="doc-titles" id="aydinlatma-title">
           <span class="t-main">KİŞİSEL VERİLERİNİN KORUNMASINA VE MAHREMİYETİNE İLİŞKİN AYDINLATMA BİLDİRİMİ</span>
-          <span class="t-sub">SURVEYMONKEY ANKET UYGULAMALARI</span>
+          <span class="t-sub">ÇALIŞAN DENEYIMI ANKET PLATFORMU ANKET UYGULAMALARI</span>
           <span class="t-mini">-ÇALIŞANLAR İÇİN-</span>
         </h2>
+        <p class="doc-date">Oluşturma: 24.06.2026</p>
         <p class="section-lead">Anketi yanıtlamaya başlamadan önce, hangi verinin neden işlendiğini ve haklarınızı buradan okuyabilirsiniz. Belge aşağıda olduğu gibi yer almaktadır.</p>
       </header>
 
@@ -726,9 +738,9 @@
             Veri Sorumlusu Kimliği:
           </h3>
           <div class="doc-prose">
-            <p>_____________ (“Sistem Global”) olarak SurveyMonkey Anket Platformu üzerinden çalışanlarımıza belirli konularda anket uygulamaları gerçekleştirmekteyiz.</p>
+            <p>_____________ (“Sistem Global”) olarak Çalışan Deneyimi Anket Platformu Anket Platformu üzerinden çalışanlarımıza belirli konularda anket uygulamaları gerçekleştirmekteyiz.</p>
             <p>İşbu Aydınlatma Bildiriminde paylaştığımız veri işleme operasyonlarıyla sınırlı olarak veri sorumlusu sıfatıyla hareket etmekteyiz.</p>
-            <p>Anketlerimize katılım zorunlu değildir. Eğer ankete katılmaya karar verirseniz. SurveyMonkey konuya ilişkin Gizlilik Bildirimine buradan ulaşabilirsiniz: https://tr.surveymonkey.com/mp/legal/privacy/ .</p>
+            <p>Anketlerimize katılım zorunlu değildir.</p>
           </div>
         </div>
 
@@ -741,8 +753,8 @@
             İşlenme Amaçları:
           </h3>
           <div class="doc-prose">
-            <p>Anket uygulamalarıyla Sistem Global ve birimlerinin kamuoyu ve çalışan algısının ölçülmesi, iş geliştirme, performans iyileştirme gibi amaçlara odaklanmaktayız. Bu süreç boyunca yalnızca anket daveti iletmek amacıyla sınırlı olarak e-posta adresinizi SurveyMoney ile paylaşacağız.</p>
-            <p>Ankete katılımınızın ardından e-posta adresiniz ile anket yanıtlarınız arasındaki bağlantı geri döndürülemez şekilde ve otomatik olarak kaldırılmaktadır. Anket sonuçları, katılımcıyla ilgili e-posta adresi dahil herhangi bir kimlik tanımlayıcıya yer verilmeksizin kullanılacaktır. Bununla birlikte yayına aldığımız bazı anket sonuçlarında ad soyadınız, e-posta adresiniz, çalıştığınız lokasyon, departman ve takımınız, mesleğini, eğitim durumunuz, cinsiyetiniz ve yaşınız sorulabilir. Anket esnasında bu veriler demografik olarak toplanacaktır ve yalnızca bu Aydınlatma Bildirimi’nde belirtilen amaçların yerine getirilmesinde kullanılacaktır.</p>
+            <p>Anket uygulamalarıyla Sistem Global ve birimlerinin kamuoyu ve çalışan algısının ölçülmesi, iş geliştirme, performans iyileştirme gibi amaçlara odaklanmaktayız.</p>
+            <p>Anket sonuçları, katılımcıyla ilgili herhangi bir kimlik tanımlayıcıya yer verilmeksizin kullanılacaktır. Bununla birlikte yayına aldığımız bazı anket sonuçlarında, çalıştığınız lokasyon, departman ve takımınız, cinsiyetiniz ve yaşınız sorulabilir. Anket esnasında bu veriler demografik olarak toplanacaktır ve yalnızca bu Aydınlatma Bildirimi’nde belirtilen amaçların yerine getirilmesinde kullanılacaktır.</p>
           </div>
         </div>
 
@@ -755,9 +767,7 @@
             Aktarım Amaçları ve Aktarılan Kişiler:
           </h3>
           <div class="doc-prose">
-            <p>E-posta adresiniz, anketin bir kişi tarafından birden fazla kez yanıtlanmasının önüne geçilmesi amacıyla SurveyMoney ile paylaşılacaktır. Bir şirketler grubu olan SurveyMonkey ‘in Amerika Birleşik Devletleri, Hollanda, İrlanda ve Kanada ‘da işletmeleri bulunduğunu, ankete katılmanız halinde verilerinizin bu ülkelere aktarılmış olacağını bildiririz. Anket soruları içerisinde kimlik ve iletişim verileriniz ayrıca sorulduğunda bunları yanıtlarsanız bu verileriniz de belirtilen ülkelere aktarılmış olacaktır.</p>
-            <p>Kişisel verinizin yurt dışına aktarımı tek seferlik ve süreklilik arz etmeyen, 6698 Sayılı Kişisel Verilerin Korunması Kanun ‘un 9 ‘uncu maddesinde “arızi hal” olarak ifade edilen bir işlemdir. Bu işlem için anılan Kanun ‘un 9’uncu maddesinin 6 ‘ncı fıkrası gereğince açık rızanız talep edilecektir.</p>
-            <p>SurveyMonkey, anketi tamamlamanızın ardından anket yanıtlarınız ve sonuçlarla e-posta adresiniz arasındaki bağlantıyı geri döndürülemez bir şekilde silmektedir.</p>
+            <p>Çalışan Deneyimi Anket Platformu, tamamen Anonim bir link olup, alınan veriler sadece Anket değerlendirmesinde kullanılacaktır. Platform sunucularının barındırıldığı veri merkezleri dışında veriler 3. kişilerle paylaşılmayacaktır.</p>
           </div>
         </div>
 
@@ -770,7 +780,7 @@
             Veri Toplama Yöntemi ve Hukuki Sebebi:
           </h3>
           <div class="doc-prose">
-            <p>E-posta adresiniz iş başvurunuz esnasında Sistem Global’e ilettiğiniz formlar, özgeçmiş dosyaları, başvuru adresi ve İnsan Kaynakları ekibinin mevcut çalışan kayıtlarından elde edilecektir. Diğer verileriniz SurveyMonkey aracılığıyla doğrudan işlenecektir.</p>
+            <p>E-posta adresiniz iş başvurunuz esnasında Sistem Global’e ilettiğiniz formlar, özgeçmiş dosyaları, başvuru adresi ve İnsan Kaynakları ekibinin mevcut çalışan kayıtlarından elde edilecektir. Diğer verileriniz Çalışan Deneyimi Anket Platformu aracılığıyla doğrudan işlenecektir.</p>
             <p>Anket uygulamaları sürecinde e-posta adresinizi kullanırken 6698 Sayılı Kişisel Verilerin Korunması Kanunu ‘nun 5 ‘inci maddesinde sayılan “f) İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması” hukuki sebebine dayanmaktayız.</p>
           </div>
         </div>
@@ -797,7 +807,7 @@
       <header class="section-head rise">
         <h2 class="doc-titles" id="acikriza-title">
           <span class="t-main">AÇIK RIZA BİLDİRİMİ</span>
-          <span class="t-sub">SURVEYMONKEY ANKET UYGULAMALARI</span>
+          <span class="t-sub">ÇALIŞAN DENEYIMI ANKET PLATFORMU ANKET UYGULAMALARI</span>
         </h2>
         <p class="section-lead">Verilerinizin yurt dışına aktarımına ilişkin açık rıza yalnızca sizin onayınızla geçerlilik kazanır. Onaylamak tamamen isteğe bağlıdır.</p>
       </header>
@@ -805,10 +815,10 @@
       <div class="consent-card consent-anchor rise" id="consentCard">
         <div class="consent-titles">
           <span class="ct-main">AÇIK RIZA BİLDİRİMİ</span>
-          <span class="ct-sub">SURVEYMONKEY ANKET UYGULAMALARI</span>
+          <span class="ct-sub">ÇALIŞAN DENEYIMI ANKET PLATFORMU ANKET UYGULAMALARI</span>
         </div>
         <div class="consent-body">
-          <p>_____________ (“Sistem Global”) tarafından düzenlenen anket uygulamalarına katılmam amacıyla e-posta adresimin ve paylaşacağım diğer demografik verilerin Amerika Birleşik Devletleri, Hollanda, İrlanda ve Kanada ‘da işletmeleri bulunan SurveyMonkey ‘e gönderilmesine açık rıza vermekteyim.</p>
+          <p>_____________ (“Sistem Global”) tarafından düzenlenen anket uygulamalarına katılmam amacıyla e-posta adresimin ve paylaşacağım diğer demografik verilerin Amerika Birleşik Devletleri, Hollanda, İrlanda ve Kanada ‘da işletmeleri bulunan Çalışan Deneyimi Anket Platformu’e gönderilmesine açık rıza vermekteyim.</p>
         </div>
 
         <div class="consent-control" id="consentControl">
