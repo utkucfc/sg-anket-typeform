@@ -721,7 +721,7 @@
       <header class="section-head rise">
         <h2 class="doc-titles" id="aydinlatma-title">
           <span class="t-main">KİŞİSEL VERİLERİNİN KORUNMASINA VE MAHREMİYETİNE İLİŞKİN AYDINLATMA BİLDİRİMİ</span>
-          <span class="t-sub">ÇALIŞAN DENEYIMI ANKET PLATFORMU ANKET UYGULAMALARI</span>
+          <span class="t-sub">ÇALIŞAN DENEYİMİ ANKET PLATFORMU ANKET UYGULAMALARI</span>
           <span class="t-mini">-ÇALIŞANLAR İÇİN-</span>
         </h2>
         <p class="doc-date">Oluşturma: 24.06.2026</p>
@@ -738,7 +738,7 @@
             Veri Sorumlusu Kimliği:
           </h3>
           <div class="doc-prose">
-            <p>_____________ (“Sistem Global”) olarak Çalışan Deneyimi Anket Platformu Anket Platformu üzerinden çalışanlarımıza belirli konularda anket uygulamaları gerçekleştirmekteyiz.</p>
+            <p>Sistem Global olarak Çalışan Deneyimi Anket Platformu Anket Platformu üzerinden çalışanlarımıza belirli konularda anket uygulamaları gerçekleştirmekteyiz.</p>
             <p>İşbu Aydınlatma Bildiriminde paylaştığımız veri işleme operasyonlarıyla sınırlı olarak veri sorumlusu sıfatıyla hareket etmekteyiz.</p>
             <p>Anketlerimize katılım zorunlu değildir.</p>
           </div>
@@ -780,8 +780,8 @@
             Veri Toplama Yöntemi ve Hukuki Sebebi:
           </h3>
           <div class="doc-prose">
-            <p>E-posta adresiniz iş başvurunuz esnasında Sistem Global’e ilettiğiniz formlar, özgeçmiş dosyaları, başvuru adresi ve İnsan Kaynakları ekibinin mevcut çalışan kayıtlarından elde edilecektir. Diğer verileriniz Çalışan Deneyimi Anket Platformu aracılığıyla doğrudan işlenecektir.</p>
-            <p>Anket uygulamaları sürecinde e-posta adresinizi kullanırken 6698 Sayılı Kişisel Verilerin Korunması Kanunu ‘nun 5 ‘inci maddesinde sayılan “f) İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması” hukuki sebebine dayanmaktayız.</p>
+            <p>Demografik verileriniz, Çalışan Deneyimi Anket Platformu aracılığıyla doğrudan, anketi yanıtladığınız sırada toplanmaktadır. E-posta adresiniz ya da kimliğinizi belirleyebilecek başka hiçbir bilgi alınmaz.</p>
+            <p>Anket uygulamaları sürecinde demografik verilerinizi işlerken 6698 Sayılı Kişisel Verilerin Korunması Kanunu ‘nun 5 ‘inci maddesinde sayılan “f) İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması” hukuki sebebine dayanmaktayız.</p>
           </div>
         </div>
 
@@ -807,7 +807,7 @@
       <header class="section-head rise">
         <h2 class="doc-titles" id="acikriza-title">
           <span class="t-main">AÇIK RIZA BİLDİRİMİ</span>
-          <span class="t-sub">ÇALIŞAN DENEYIMI ANKET PLATFORMU ANKET UYGULAMALARI</span>
+          <span class="t-sub">ÇALIŞAN DENEYİMİ ANKET PLATFORMU ANKET UYGULAMALARI</span>
         </h2>
         <p class="section-lead">Verilerinizin yurt dışına aktarımına ilişkin açık rıza yalnızca sizin onayınızla geçerlilik kazanır. Onaylamak tamamen isteğe bağlıdır.</p>
       </header>
@@ -815,10 +815,10 @@
       <div class="consent-card consent-anchor rise" id="consentCard">
         <div class="consent-titles">
           <span class="ct-main">AÇIK RIZA BİLDİRİMİ</span>
-          <span class="ct-sub">ÇALIŞAN DENEYIMI ANKET PLATFORMU ANKET UYGULAMALARI</span>
+          <span class="ct-sub">ÇALIŞAN DENEYİMİ ANKET PLATFORMU ANKET UYGULAMALARI</span>
         </div>
         <div class="consent-body">
-          <p>_____________ (“Sistem Global”) tarafından düzenlenen anket uygulamalarına katılmam amacıyla e-posta adresimin ve paylaşacağım diğer demografik verilerin Amerika Birleşik Devletleri, Hollanda, İrlanda ve Kanada ‘da işletmeleri bulunan Çalışan Deneyimi Anket Platformu’e gönderilmesine açık rıza vermekteyim.</p>
+          <p>Sistem Global tarafından düzenlenen anket uygulamalarına katılmam amacıyla paylaşacağım demografik verilerin Sistem Global Dijitalleşme ve Verimlilik ekibi tarafından geliştirilen Çalışan Deneyimi Anket Platformu’e gönderilmesine açık rıza vermekteyim.</p>
         </div>
 
         <div class="consent-control" id="consentControl">
@@ -960,7 +960,12 @@
         }
       });
     }, { threshold: .12, rootMargin: "0px 0px -8% 0px" });
-    risers.forEach(function(el){ io.observe(el); });
+    var vpH = window.innerHeight || document.documentElement.clientHeight;
+    risers.forEach(function(el){
+      // Açılışta zaten görünür olan öğeler kaydırmalı reveal ALMAZ (ekrandaki içeriğin tekrar canlandırılması önlenir); yalnızca fold altındakiler kaydırınca belirir.
+      if(el.getBoundingClientRect().top < vpH){ return; }
+      io.observe(el);
+    });
   }
   /* IO yoksa / reduced: içerik zaten görünür (class kilidi yok) */
 
