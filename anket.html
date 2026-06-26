@@ -974,7 +974,7 @@ function renderIntro() {
 
   const notice = el("div", { class: "notice", role: "note" });
   notice.innerHTML = ICON.shield;
-  notice.appendChild(el("p", { html: "<strong>Yanıtlarınız tamamen anonimdir.</strong> Ad, soyad veya departman bilgisi istenmez; cevaplar yalnızca toplu olarak değerlendirilir ve kişisel olarak ilişkilendirilemez." }));
+  notice.appendChild(el("p", { html: "<strong>Yanıtlarınız tamamen anonimdir.</strong> Ad, soyad veya e-posta bilgisi istenmez; cevaplar yalnızca toplu olarak değerlendirilir ve kişisel olarak ilişkilendirilemez." }));
   wrap.appendChild(notice);
 
   const meta = el("ul", { class: "intro-meta" });
