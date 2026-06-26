@@ -949,25 +949,8 @@
   checkbox.checked = false;
   syncConsent();
 
-  /* ---------------- kaydırmalı reveal (görünürlüğü kilitlemeden zenginleştirir) ---------------- */
-  var risers = Array.prototype.slice.call(document.querySelectorAll(".rise"));
-  if(!REDUCED && "IntersectionObserver" in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){
-          en.target.classList.add("in-view");
-          io.unobserve(en.target);
-        }
-      });
-    }, { threshold: .12, rootMargin: "0px 0px -8% 0px" });
-    var vpH = window.innerHeight || document.documentElement.clientHeight;
-    risers.forEach(function(el){
-      // Açılışta zaten görünür olan öğeler kaydırmalı reveal ALMAZ (ekrandaki içeriğin tekrar canlandırılması önlenir); yalnızca fold altındakiler kaydırınca belirir.
-      if(el.getBoundingClientRect().top < vpH){ return; }
-      io.observe(el);
-    });
-  }
-  /* IO yoksa / reduced: içerik zaten görünür (class kilidi yok) */
+  /* Kaydırmalı reveal KALDIRILDI: icerik her zaman gorunur; ekrandaki ogelerin
+     scroll sirasinda riseIn ile tekrar canlandirilmasi tamamen onlendi. */
 
 })();
 </script>
