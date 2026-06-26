@@ -493,6 +493,9 @@
 
   .field.has-error input,
   .field.has-error select { border-color: var(--danger); }
+  .field.has-error > label,
+  .field.has-error > .field-label { color: var(--danger); }
+  .field.has-error .chip label { border-color: var(--danger); }
 
   /* ---------- Footer nav (sticky) ---------- */
   .navbar {
@@ -828,7 +831,60 @@ const SURVEY = {
    ==================================================================== */
 const answers = {};          // { no: deger }
 const openEndedAns = {};     // { index: text }
-const demo = { yas: "", sehir: "", cinsiyet: "", kidem: "" };
+const demo = { yas: "", cinsiyet: "", lokasyon: "", bolum: "", altBirim: "", unvan: "", kidem: "" };
+
+/* Demografik veri listeleri (kaynak: .build/demografik.json) */
+const DEMO_DATA = {
+  bolumler: [
+    "SOLVERA", "VERGİ DENETİM VE RAPORLAMA HİZMETLERİ", "İŞ GELİŞTİRME VE MARKA YÖNETİMİ",
+    "HUKUK", "VERGİ VE FİNANSAL YÖNETİM DANIŞMANLIĞI", "İDARİ İŞLER", "MALİ İŞLER",
+    "SİSTEM GLOBAL TEKNOLOJİ", "BİLGİ TEKNOLOJİLERİ VE DİJİTAL OPERASYONLAR", "BAĞIMSIZ DENETİM",
+    "YÖNETİM OFİSİ", "ULUSLARARASI PROJELER VE KALKINMA DANIŞMANLIĞI", "İNSAN KAYNAKLARI",
+    "SGLOBE", "KURUMSAL FİNANS VE DEĞERLEME", "İŞLETME ÇÖZÜMLERİ  SGA SMMM",
+    "İŞLETME ÇÖZÜMLERİ TEKNOPAY", "EKP", "SÜRDÜRÜLEBİLİRLİK", "STRATEJİK İŞ ORTAKLARI",
+    "STRATEJİ & BÜYÜME", "LEGALMATİC", "DİJİTALLEŞME VE VERİMLİLİK"
+  ],
+  altBirimler: [
+    "BAĞIMSIZ DENETİM", "BİLGİ TEKNOLOJİLERİ YÖNETİM", "BÜYÜME ANALİSTLERİ", "ÇUKUROVA BÖLGE",
+    "DANIŞMANLIK", "DAVA", "EDANIŞMAN", "PROJE YÖNETİM", "DEĞERLEME",
+    "İŞE ALIM VE İŞVEREN MARKASI", "İNSAN KAYNAKLARI YÖNETİM", "MÜŞTERİ İLİŞKİLERİ",
+    "KALKINMA FONLARI THERAHUB", "KALKINMA FONLARI HORIZON", "DİJİTALLEŞME",
+    "FM YÖNETİM HİZMETLERİ", "KURUMSAL GELİŞİM", "TİCARİLEŞME", "YURT DIŞI İŞ GELİŞTİRME",
+    "YURT İÇİ İŞ GELİŞTİRME", "IT", "SGREEN", "STRATEJİ & BÜYÜME", "EUROMOSS", "İDARİ İŞLER",
+    "KALKINMA FONLARI", "KVKK", "MALİ İŞLER", "MALİ VE İDARİ İŞLER", "MARKA", "OPERASYON",
+    "PATENT", "PROJE VE ÜRÜN YÖNETİMİ", "RAPORLAMA", "RPA ÇÖZÜMLERİ", "SATIŞ", "SGA SMMM",
+    "SİSTEM VE ALT YAPI YÖNETİMİ", "SOLVERA", "SÜREÇ ÇÖZÜMLERİ", "TEKNOPAY",
+    "VERGİ VE FİNANSAL YÖNETİM DANIŞMANLIĞI", "VERGİ DENETİM", "YÖNETİM OFİSİ",
+    "İHRACAT VE ULUSLARARASI BÜYÜME SERVİSLERİ", "SGLOBE", "ANKARA PROJE", "İSTANBUL PROJE",
+    "SOLVERA", "SİSTEM GLOBAL TEKNOLOJİ", "İZMİR BÖLGE", "TÜRKSAT", "TÜRKSAT", "LEGALMATİC",
+    "MUHASEBE", "BÜTÇE VE RAPORLAMA", "SATIN ALMA", "PAZARLAMA İLETİŞİMİ",
+    "ÜRÜN VE VERİ YÖNETİMİ", "FİNANS", "FİNANS", "AR", "İHRACAT VE YATIRIM"
+  ],
+  unvanlar: [
+    "UZMAN", "ŞOFÖR", "MÜDÜR", "YÖNETİCİ", "KIDEMLİ MÜDÜR", "ORTAK", "KIDEMLİ UZMAN", "AVUKAT",
+    "UZMAN YARDIMCISI", "KIDEMLİ AVUKAT", "KIDEMLİ DANIŞMAN", "DESTEK PERSONELİ", "YÖNETİCİ AVUKAT",
+    "MÜDÜR YARDIMCISI", "DİREKTÖR", "DENETÇİ", "DENETÇİ YARDIMCISI", "BÖLGE ORTAĞI", "KIDEMLİ DENETÇİ",
+    "GENEL MÜDÜR YARDIMCISI", "YÖNETİM KURULU ÜYESİ", "STAJYER", "KIDEMLİ YAZILIMCI", "YAZILIMCI",
+    "İŞ ANALİSTİ", "CEO", "DANIŞMAN", "BÖLÜM BAŞKAN YARDIMCISI", "BÖLÜM ASİSTANI",
+    "KIDEMLİ DENETÇİ YARDIMCISI", "KIDEMLİ YÖNETİCİ", "GENEL MÜDÜR"
+  ],
+  lokasyonlar: [
+    "ADANA", "ANKARA", "ANTALYA", "BURSA", "GAZİANTEP", "İSTANBUL", "İZMİR", "KAYSERİ", "VAN"
+  ]
+};
+// Alt birim: kaynaktaki sırayı koruyarak tekilleştir (SOLVERA/TÜRKSAT/FİNANS tekrarlarını çıkar)
+const ALT_BIRIMLER = DEMO_DATA.altBirimler.filter(function (v, i, a) { return a.indexOf(v) === i; });
+
+/* Demografik alan tanımları — render + doğrulama tek kaynaktan beslenir. Tümü zorunlu. */
+const DEMO_FIELDS = [
+  { key: "yas",      type: "chips",  fieldId: "yasField",      errId: "yasErr",      name: "yas",      label: "Yaşınız",                     options: ["20-26", "27-33", "34-40", "41-47", "48+"],          err: "Lütfen yaş aralığınızı seçin." },
+  { key: "cinsiyet", type: "chips",  fieldId: "cinsiyetField", errId: "cinsiyetErr", name: "cinsiyet", label: "Cinsiyet",                    options: ["Kadın", "Erkek", "Belirtmek istemiyorum"],          err: "Lütfen cinsiyetinizi seçin." },
+  { key: "lokasyon", type: "select", fieldId: "lokasyonField", errId: "lokasyonErr", inputId: "lokasyon", label: "Lokasyon",                 options: DEMO_DATA.lokasyonlar,                                 err: "Lütfen lokasyonunuzu seçin." },
+  { key: "bolum",    type: "select", fieldId: "bolumField",    errId: "bolumErr",    inputId: "bolum",    label: "Bölüm",                    options: DEMO_DATA.bolumler,                                    err: "Lütfen bölümünüzü seçin." },
+  { key: "altBirim", type: "select", fieldId: "altBirimField", errId: "altBirimErr", inputId: "altBirim", label: "Alt birim",                options: ALT_BIRIMLER,                                          err: "Lütfen alt biriminizi seçin." },
+  { key: "unvan",    type: "select", fieldId: "unvanField",    errId: "unvanErr",    inputId: "unvan",    label: "Ünvan",                    options: DEMO_DATA.unvanlar,                                    err: "Lütfen ünvanınızı seçin." },
+  { key: "kidem",    type: "chips",  fieldId: "kidemField",    errId: "kidemErr",    name: "kidem",    label: "Şirketteki çalışma süreniz",  options: ["0-1 yıl", "2-4 yıl", "5-6 yıl", "7-8 yıl", "9+ yıl"], err: "Lütfen çalışma sürenizi seçin." }
+];
 
 // flatten likert questions, carrying group meta
 const FLAT = [];
@@ -940,77 +996,61 @@ function renderDemo() {
   const wrap = el("div", { class: "anim" });
   wrap.appendChild(el("span", { class: "qindex", html: ICON.dot + "Başlangıç" }));
   wrap.appendChild(el("h2", { class: "q-title", text: "Sizi biraz tanıyalım" }));
-  wrap.appendChild(el("p", { class: "q-sub", text: "Bu bilgiler yalnızca sonuçları gruplandırmak içindir. Yıldızlı alan dışındakiler isteğe bağlıdır." }));
+  wrap.appendChild(el("p", { class: "q-sub", text: "Bu bilgiler yalnızca sonuçları gruplandırmak içindir. Lütfen tüm alanları doldurun." }));
 
-  // Yaş
-  const fYas = el("div", { class: "field" });
-  fYas.appendChild(el("label", { for: "yas", html: "Yaşınız <span class='opt-tag'>(opsiyonel)</span>" }));
-  const yas = el("input", {
-    type: "number", id: "yas", name: "yas", min: "18", max: "70",
-    inputmode: "numeric", placeholder: "Örn. 34", value: demo.yas,
-    "aria-describedby": "yasHint"
+  DEMO_FIELDS.forEach(function (cfg) {
+    wrap.appendChild(cfg.type === "select" ? buildDemoSelect(cfg) : buildDemoChips(cfg));
   });
-  yas.addEventListener("input", function () { demo.yas = yas.value; });
-  fYas.appendChild(yas);
-  fYas.appendChild(el("p", { id: "yasHint", class: "opt-tag", style: "margin:7px 0 0", text: "18–70 arası." }));
-  wrap.appendChild(fYas);
 
-  // Şehir
-  const fSehir = el("div", { class: "field" });
-  fSehir.appendChild(el("label", { for: "sehir", html: "Şehir <span class='opt-tag'>(opsiyonel)</span>" }));
-  const sehir = el("select", { id: "sehir", name: "sehir" });
-  sehir.appendChild(el("option", { value: "", text: "Seçiniz…" }));
-  ["İstanbul", "Ankara", "İzmir", "Bursa", "Kocaeli", "Antalya", "Gaziantep", "Diğer"].forEach(function (c) {
-    const o = el("option", { value: c, text: c });
-    if (demo.sehir === c) o.selected = true;
-    sehir.appendChild(o);
-  });
-  sehir.addEventListener("change", function () { demo.sehir = sehir.value; });
-  fSehir.appendChild(sehir);
-  wrap.appendChild(fSehir);
+  return wrap;
+}
 
-  // Cinsiyet
-  const fCins = el("fieldset", { class: "field" });
-  fCins.appendChild(el("legend", { class: "field-label", html: "Cinsiyet <span class='opt-tag'>(opsiyonel)</span>" }));
-  const chipsC = el("div", { class: "chips", role: "radiogroup", "aria-label": "Cinsiyet (opsiyonel)" });
-  ["Kadın", "Erkek", "Belirtmek istemiyorum"].forEach(function (v, i) {
-    const id = "cins-" + i;
+// Zorunlu chip radiogroup alanı (cinsiyet / kıdem stilinde)
+function buildDemoChips(cfg) {
+  const fs = el("fieldset", { class: "field", id: cfg.fieldId });
+  fs.appendChild(el("legend", { class: "field-label", html: cfg.label + " <span class='req-tag'>* zorunlu</span>" }));
+  const chips = el("div", { class: "chips", role: "radiogroup", "aria-label": cfg.label, "aria-required": "true" });
+  const err = el("div", { class: "err", id: cfg.errId, role: "alert" });
+  err.innerHTML = ICON.alert + "<span>" + cfg.err + "</span>";
+  cfg.options.forEach(function (v, i) {
+    const id = cfg.name + "-" + i;
     const c = el("div", { class: "chip" });
-    const inp = el("input", { type: "radio", name: "cinsiyet", id: id, value: v });
-    if (demo.cinsiyet === v) inp.checked = true;
-    inp.addEventListener("change", function () { demo.cinsiyet = v; });
-    c.appendChild(inp);
-    c.appendChild(el("label", { for: id, text: v }));
-    chipsC.appendChild(c);
-  });
-  fCins.appendChild(chipsC);
-  wrap.appendChild(fCins);
-
-  // Kıdem (zorunlu)
-  const fKid = el("fieldset", { class: "field", id: "kidemField" });
-  fKid.appendChild(el("legend", { class: "field-label", html: "Şirketteki kıdeminiz <span class='req-tag'>* zorunlu</span>" }));
-  const chipsK = el("div", { class: "chips", role: "radiogroup", "aria-label": "Kıdem (zorunlu)", "aria-required": "true" });
-  ["0-1 yıl", "1-3 yıl", "3-5 yıl", "5-10 yıl", "10+ yıl"].forEach(function (v, i) {
-    const id = "kid-" + i;
-    const c = el("div", { class: "chip" });
-    const inp = el("input", { type: "radio", name: "kidem", id: id, value: v });
-    if (demo.kidem === v) inp.checked = true;
+    const inp = el("input", { type: "radio", name: cfg.name, id: id, value: v });
+    if (demo[cfg.key] === v) inp.checked = true;
     inp.addEventListener("change", function () {
-      demo.kidem = v;
-      fKid.classList.remove("has-error");
-      kidErr.classList.remove("is-shown");
+      demo[cfg.key] = v;
+      fs.classList.remove("has-error");
+      err.classList.remove("is-shown");
     });
     c.appendChild(inp);
     c.appendChild(el("label", { for: id, text: v }));
-    chipsK.appendChild(c);
+    chips.appendChild(c);
   });
-  fKid.appendChild(chipsK);
-  const kidErr = el("div", { class: "err", id: "kidemErr", role: "alert" });
-  kidErr.innerHTML = ICON.alert + "<span>Lütfen kıdeminizi seçin.</span>";
-  fKid.appendChild(kidErr);
-  wrap.appendChild(fKid);
+  fs.appendChild(chips);
+  fs.appendChild(err);
+  return fs;
+}
 
-  return wrap;
+// Zorunlu select alanı (lokasyon / bölüm / alt birim / ünvan)
+function buildDemoSelect(cfg) {
+  const f = el("div", { class: "field", id: cfg.fieldId });
+  f.appendChild(el("label", { for: cfg.inputId, html: cfg.label + " <span class='req-tag'>* zorunlu</span>" }));
+  const sel = el("select", { id: cfg.inputId, name: cfg.inputId, "aria-required": "true" });
+  sel.appendChild(el("option", { value: "", text: "Seçiniz…" }));
+  cfg.options.forEach(function (c) {
+    const o = el("option", { value: c, text: c });
+    if (demo[cfg.key] === c) o.selected = true;
+    sel.appendChild(o);
+  });
+  const err = el("div", { class: "err", id: cfg.errId, role: "alert" });
+  err.innerHTML = ICON.alert + "<span>" + cfg.err + "</span>";
+  sel.addEventListener("change", function () {
+    demo[cfg.key] = sel.value;
+    if (sel.value) { f.classList.remove("has-error"); err.classList.remove("is-shown"); }
+  });
+  f.appendChild(sel);
+  f.appendChild(err);
+  return f;
 }
 
 function renderLikert(step) {
@@ -1215,16 +1255,27 @@ function updateChrome() {
 function validateStep() {
   const step = STEPS[current];
   if (step.kind === "demo") {
-    if (!demo.kidem) {
-      const field = document.getElementById("kidemField");
-      const err = document.getElementById("kidemErr");
-      if (field) field.classList.add("has-error");
-      if (err) err.classList.add("is-shown");
-      const firstChip = form.querySelector('input[name="kidem"]');
-      if (firstChip) firstChip.focus({ preventScroll: false });
-      const legend = field ? field.querySelector("legend") : null;
-      if (legend) legend.scrollIntoView({ behavior: "smooth", block: "center" });
-      announce("Lütfen kıdeminizi seçin.");
+    let firstInvalid = null;
+    DEMO_FIELDS.forEach(function (cfg) {
+      const field = document.getElementById(cfg.fieldId);
+      const err = document.getElementById(cfg.errId);
+      if (!demo[cfg.key]) {
+        if (field) field.classList.add("has-error");
+        if (err) err.classList.add("is-shown");
+        if (!firstInvalid) firstInvalid = cfg;
+      } else {
+        if (field) field.classList.remove("has-error");
+        if (err) err.classList.remove("is-shown");
+      }
+    });
+    if (firstInvalid) {
+      const field = document.getElementById(firstInvalid.fieldId);
+      const target = firstInvalid.type === "select"
+        ? document.getElementById(firstInvalid.inputId)
+        : form.querySelector('input[name="' + firstInvalid.name + '"]');
+      if (target) target.focus({ preventScroll: true });
+      if (field) field.scrollIntoView({ behavior: "smooth", block: "center" });
+      announce(firstInvalid.err);
       return false;
     }
     return true;
@@ -1286,9 +1337,12 @@ function buildPayload() {
   });
   return {
     kisiselBilgiler: {
-      yas: demo.yas ? Number(demo.yas) : null,
-      sehir: demo.sehir || null,
+      yas: demo.yas || null,
       cinsiyet: demo.cinsiyet || null,
+      lokasyon: demo.lokasyon || null,
+      bolum: demo.bolum || null,
+      altBirim: demo.altBirim || null,
+      unvan: demo.unvan || null,
       kidem: demo.kidem || null
     },
     yanitlar: yanitlar,

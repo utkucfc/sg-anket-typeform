@@ -363,6 +363,64 @@
   .doc-prose a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1.5px; word-break: break-all; }
   .doc-prose a:hover { color: var(--accent-deep); }
 
+  /* ---------- İK DAVET MEKTUBU (hero altı) ---------- */
+  .letter {
+    position: relative;
+    background: linear-gradient(180deg, #fffdf8 0%, var(--surface) 100%);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    padding: clamp(26px,4.5vw,48px);
+    overflow: hidden;
+  }
+  .letter::before {
+    content: "";
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--accent), #3f8a74);
+  }
+  .letter-head { margin-bottom: clamp(18px,2.4vw,26px); }
+  .letter-eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-family: var(--font-body);
+    font-weight: 600; font-size: 12.5px;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1.5px solid #cfe2db;
+    border-radius: 999px; padding: 7px 15px 7px 12px;
+  }
+  .letter-eyebrow svg { flex: none; width: 16px; height: 16px; }
+  .letter-title {
+    font-family: var(--font-head); font-weight: 700;
+    font-size: clamp(1.4rem, 1.05rem + 1.7vw, 2.05rem);
+    line-height: 1.16; letter-spacing: -.025em;
+    color: var(--ink);
+    margin: 16px 0 0; text-wrap: balance;
+  }
+  .letter-body p {
+    color: var(--ink); font-size: 16.5px; line-height: 1.78; font-weight: 400;
+    max-width: 70ch; text-wrap: pretty;
+    overflow-wrap: break-word;
+    margin: 0;
+  }
+  .letter-body p + p { margin-top: 16px; }
+  .letter-sign {
+    margin-top: clamp(26px,3.4vw,36px);
+    padding-top: 22px;
+    border-top: 1.5px solid var(--line);
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .letter-sign .sign-name {
+    font-family: var(--font-head); font-weight: 700;
+    font-size: clamp(1.05rem, 1rem + .5vw, 1.22rem);
+    letter-spacing: -.01em; color: var(--ink);
+  }
+  .letter-sign .sign-title {
+    font-size: 14px; font-weight: 600; letter-spacing: .02em;
+    color: var(--ink-soft);
+  }
+
   /* ---------- AÇIK RIZA onay kartı ---------- */
   .consent-anchor { scroll-margin-top: 90px; }
   .consent-card {
@@ -617,6 +675,32 @@
         </span>
         <p class="quietline">Yanıtlarınız anonimdir ve yalnızca toplu olarak değerlendirilir.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== İK DAVET MEKTUBU ===================== -->
+  <section class="section" id="ik-mesaji" aria-labelledby="ik-mesaji-title">
+    <div class="prose-shell">
+      <article class="letter rise">
+        <header class="letter-head">
+          <span class="letter-eyebrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="2.2"/><path d="M4.2 7l7.8 6 7.8-6"/></svg>
+            İnsan Kaynakları'ndan
+          </span>
+          <h2 class="letter-title" id="ik-mesaji-title">Davet Mektubu</h2>
+        </header>
+        <div class="letter-body">
+          <p>Sistem Global olarak, çalışanlarımızın katkılarıyla şekillenen güçlü kurum kültürümüzü ve çalışma ortamımızı sürekli geliştirmeyi önemsiyoruz. Bugüne kadar hayata geçirdiğimiz uygulamaların sizlerdeki karşılığını anlamak, güçlü yönlerimizi korumak ve gelişim alanlarımızı belirlemek amacıyla Çalışan Deneyimi Anketimizi sizlerin görüşlerine sunuyoruz.</p>
+          <p>Bu anket, yalnızca mevcut uygulamalarımızı değerlendirmek için değil, aynı zamanda çalışma deneyimimizi birlikte daha ileriye taşımak için önemli bir fırsat. Sizlerden gelecek geri bildirimler, sizlerin ihtiyaç ve beklentilerini daha iyi anlamamıza ve gelecekte atacağımız adımlara yön vermemize katkı sağlayacak.</p>
+          <p>Anket tamamen anonimdir. Paylaşılan bilgiler bireysel bazda raporlanmayacak, sonuçlar yalnızca toplu olarak değerlendirilecektir. Bu nedenle görüşlerinizi içtenlikle ve açık bir şekilde paylaşmanızı rica ediyoruz.</p>
+          <p>Her bir geri bildirimin, daha güçlü bir çalışan deneyimi ve daha iyi bir çalışma ortamı oluşturma yolculuğumuzda değerli bir katkı olduğuna inanıyoruz.</p>
+          <p>Katılımınız ve desteğiniz için teşekkür ederiz.</p>
+        </div>
+        <div class="letter-sign">
+          <span class="sign-name">Neslihan Yaşar</span>
+          <span class="sign-title">İnsan Kaynakları Direktörü</span>
+        </div>
+      </article>
     </div>
   </section>
 
